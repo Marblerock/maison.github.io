@@ -8,26 +8,35 @@ import { Maison, Question } from '../model/question.model';
   templateUrl: './quiz.html',
 })
 export class Quiz {
-  readonly maisonDetails: Record<Maison, { label: string; couleur: string; cadeau: string }> = {
+  started = signal(false);
+
+  readonly maisonDetails: Record<
+    Maison,
+    { label: string; couleur: string; cadeau: string; description: string }
+  > = {
     Gryffondor: {
       label: 'Gryffondor',
       couleur: 'Rouge & Or',
       cadeau: 'reçoit son pin’s ou bracelet rouge et or',
+      description: 'Tu as la bravoure, le courage et l’énergie de l’aventure.',
     },
     Serpentard: {
       label: 'Serpentard',
       couleur: 'Vert & Argent',
       cadeau: 'reçoit son pin’s ou bracelet vert et argent',
+      description: 'Tu as le flair, la détermination et une présence qui impose le respect.',
     },
     Serdaigle: {
       label: 'Serdaigle',
       couleur: 'Bleu & Bronze',
       cadeau: 'reçoit son pin’s ou bracelet bleu et bronze',
+      description: 'Tu as la curiosité, l’intelligence et le goût de la connaissance.',
     },
     Poufsouffle: {
       label: 'Poufsouffle',
       couleur: 'Jaune & Noir',
       cadeau: 'reçoit son pin’s ou bracelet jaune et noir',
+      description: 'Tu as la gentillesse, la loyauté et un cœur qui rassure les autres.',
     },
   };
 
@@ -80,8 +89,13 @@ export class Quiz {
     this.indexQuestion.update((i) => i + 1);
   }
 
+  startQuiz() {
+    this.started.set(true);
+  }
+
   recommencer() {
     this.scores.set({ Gryffondor: 0, Serpentard: 0, Serdaigle: 0, Poufsouffle: 0 });
     this.indexQuestion.set(0);
+    this.started.set(false);
   }
 }

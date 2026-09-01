@@ -1,5 +1,16 @@
 <main class="quiz-container">
-  @if (!estFini()) {
+  @if (!started()) {
+    <section class="card welcome-card">
+      <div class="welcome-ornament">✦</div>
+      <p class="subtitle">Bienvenue à Poudlard</p>
+      <h1 class="welcome-title">Découvre ta maison</h1>
+      <p class="welcome-text">
+        Le Choixpeau va décider où tu appartiens selon ton style, ta personnalité et ton énergie.
+      </p>
+
+      <button class="btn-primary" (click)="startQuiz()">Commencer le quiz</button>
+    </section>
+  } @else if (!estFini()) {
     <section class="card wizard-card">
       <div class="card-top">
         <span class="badge">✨ Sortilège</span>
@@ -21,11 +32,12 @@
     <section class="card result-card">
       <div class="result-glow"></div>
       <p class="subtitle">Le Choixpeau a parlé !</p>
+      <div class="house-pill">Maison attribuée</div>
       <h1>{{ maisonGagnante() }}</h1>
 
       <div class="instruction">
-        <p class="instruction-title">🪄 Va voir l'hôte pour récupérer ton élément :</p>
         @if (maisonGagnante()) {
+          <p class="trait">{{ maisonDetails[maisonGagnante()!].description }}</p>
           <p>
             <strong>{{ maisonDetails[maisonGagnante()!].couleur }}</strong>
             · {{ maisonDetails[maisonGagnante()!].cadeau }}
