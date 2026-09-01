@@ -1,0 +1,41 @@
+<main class="quiz-container">
+  @if (!estFini()) {
+    <div class="card">
+      <p class="step">Question {{ indexQuestion() + 1 }} / {{ questions.length }}</p>
+      <h2>{{ questions[indexQuestion()].titre }}</h2>
+
+      <div class="options">
+        @for (rep of questions[indexQuestion()].reponses; track rep.texte) {
+          <button (click)="repondre(rep.maison)">
+            {{ rep.texte }}
+          </button>
+        }
+      </div>
+    </div>
+  } @else {
+    <div class="card result">
+      <p class="subtitle">Le Choixpeau a parlé ! Tu appartiens à :</p>
+      <h1>{{ maisonGagnante() }}</h1>
+
+      <div class="instruction">
+        <p>🪄 <strong>Va voir l'hôte pour récupérer ton élément :</strong></p>
+        @switch (maisonGagnante()) {
+          @case ('Gryffondor') {
+            <p>👉 Récupère ton pin's / bracelet <strong>Rouge & Or</strong></p>
+          }
+          @case ('Serpentard') {
+            <p>👉 Récupère ton pin's / bracelet <strong>Vert & Argent</strong></p>
+          }
+          @case ('Serdaigle') {
+            <p>👉 Récupère ton pin's / bracelet <strong>Bleu & Bronze</strong></p>
+          }
+          @case ('Poufsouffle') {
+            <p>👉 Récupère ton pin's / bracelet <strong>Jaune & Noir</strong></p>
+          }
+        }
+      </div>
+
+      <button class="btn-reset" (click)="recommencer()">Recommencer</button>
+    </div>
+  }
+</main>
