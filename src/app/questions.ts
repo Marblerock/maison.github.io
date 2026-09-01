@@ -4,23 +4,17 @@ export const QUESTIONS: Question[] = [
   {
     titre: 'En arrivant au bal ce soir :',
     reponses: [
-      { texte: 'Tu filtres qui est là depuis le bar avec un verre.', maison: 'Serpentard' },
+      {
+        texte: 'Tu regardes le bar/buffet et tu repers la meilleure place.',
+        maison: 'Serpentard',
+      },
       { texte: 'Tu te jettes au milieu du groupe le plus animé.', maison: 'Gryffondor' },
       { texte: 'Tu inspectes le décor et les détails du lieu.', maison: 'Serdaigle' },
       { texte: 'Tu fais le tour pour saluer tout le monde.', maison: 'Poufsouffle' },
     ],
   },
   {
-    titre: 'Une bourse de Gallions traîne par terre :',
-    reponses: [
-      { texte: 'Tu la déposes au buffet pour son propriétaire.', maison: 'Poufsouffle' },
-      { texte: 'Tu demandes à voix haute à qui elle est.', maison: 'Gryffondor' },
-      { texte: 'Tu la fouilles pour trouver un indice.', maison: 'Serdaigle' },
-      { texte: 'Tu la gardes si personne ne réclame.', maison: 'Serpentard' },
-    ],
-  },
-  {
-    titre: 'Ce qui te drive au quotidien :',
+    titre: 'Ce qui te motive au quotidien :',
     reponses: [
       { texte: "Apprendre et analyser ce qui t'entoure.", maison: 'Serdaigle' },
       { texte: 'Réussir tes projets et marquer les esprits.', maison: 'Serpentard' },
@@ -29,7 +23,7 @@ export const QUESTIONS: Question[] = [
     ],
   },
   {
-    titre: 'Un pouvoir magique ultime :',
+    titre: 'Si tu avais un pouvoir magique ultime :',
     reponses: [
       { texte: "L'invisibilité totale.", maison: 'Serpentard' },
       { texte: 'La téléportation instantanée.', maison: 'Gryffondor' },
@@ -43,11 +37,11 @@ export const QUESTIONS: Question[] = [
       { texte: 'Tu improvises un plan B en 10 secondes.', maison: 'Gryffondor' },
       { texte: 'Tu analyses la situation à tête reposée.', maison: 'Serdaigle' },
       { texte: "Tu t'y mets tout de suite pour régler le problème.", maison: 'Poufsouffle' },
-      { texte: 'Tu contournes les règles pour y arriver.', maison: 'Serpentard' },
+      { texte: 'Tu touvres un contournement pour y arriver.', maison: 'Serpentard' },
     ],
   },
   {
-    titre: 'Le compliment idéal après la soirée :',
+    titre: 'Le compliment idéal après cette soirée :',
     reponses: [
       { texte: "« Personne ne met l'ambiance comme toi. »", maison: 'Gryffondor' },
       { texte: '« Ta conversation était passionnante. »', maison: 'Serdaigle' },
@@ -56,30 +50,35 @@ export const QUESTIONS: Question[] = [
     ],
   },
   {
-    titre: 'Quelle potion tu testes au bar ?',
+    titre: 'Quelle potion tu commandes au bar ?',
     reponses: [
-      { texte: 'Dorée : booste la confiance en soi.', maison: 'Gryffondor' },
-      { texte: 'Argentée : rend ultra-perceptif.', maison: 'Serdaigle' },
-      { texte: 'Violette : rend terriblement persuasif.', maison: 'Serpentard' },
-      { texte: 'Ambrée : procure un bien-être total.', maison: 'Poufsouffle' },
+      {
+        texte: 'La Felix Felicis : pour enchaîner les coups de chance insolents ce soir.',
+        maison: 'Gryffondor',
+      },
+      {
+        texte: "L'Amortentia : pour répandre un parfum envoûtant auquel personne ne résiste.",
+        maison: 'Serpentard',
+      },
+      {
+        texte:
+          "L'Elixir de Répartie : pour sortir la phrase parfaite et faire rire à tous les coups.",
+        maison: 'Serdaigle',
+      },
+      {
+        texte:
+          "L'Elixir d'Endurance : pour garder une pêche d'enfer et danser jusqu'à l'aube sans fatigue.",
+        maison: 'Poufsouffle',
+      },
     ],
   },
   {
     titre: 'Ton approche du Tournoi des Trois Sorciers :',
     reponses: [
-      { texte: 'Exploiter les failles du règlement.', maison: 'Serpentard' },
+      { texte: 'Etudier le règlement pour en tirer un avantage.', maison: 'Serpentard' },
       { texte: "S'entraîner dur jusqu'à la perfection.", maison: 'Poufsouffle' },
       { texte: 'Étudier la théorie et les bêtes à fond.', maison: 'Serdaigle' },
-      { texte: "Fonder la victoire sur l'audace le jour J.", maison: 'Gryffondor' },
-    ],
-  },
-  {
-    titre: 'Ton accessoire magique de bal :',
-    reponses: [
-      { texte: 'Une montre qui remonte le temps de 5 min.', maison: 'Serdaigle' },
-      { texte: 'Une bague qui protège des mauvaises intentions.', maison: 'Serpentard' },
-      { texte: 'Une tenue qui ne se salit ni se froisse jamais.', maison: 'Poufsouffle' },
-      { texte: 'Une broche qui brille quand tu prends la parole.', maison: 'Gryffondor' },
+      { texte: 'Y aller au talent et éviter de trop y penser', maison: 'Gryffondor' },
     ],
   },
   {
@@ -98,15 +97,6 @@ export const QUESTIONS: Question[] = [
       { texte: 'Tu restes neutre avec des arguments factuels.', maison: 'Serdaigle' },
       { texte: 'Tu cherches à apaiser les esprits.', maison: 'Poufsouffle' },
       { texte: 'Tu amènes subtilement les autres à ton idée.', maison: 'Serpentard' },
-    ],
-  },
-  {
-    titre: 'Un portrait refuse de te laisser passer :',
-    reponses: [
-      { texte: 'Tu le flattes ou trouves son point faible.', maison: 'Serpentard' },
-      { texte: 'Tu cherches le mot de passe exact.', maison: 'Serdaigle' },
-      { texte: "Tu insistes avec fermeté jusqu'à ce qu'il cède.", maison: 'Gryffondor' },
-      { texte: "Tu lui demandes poliment de l'aide.", maison: 'Poufsouffle' },
     ],
   },
   {
@@ -137,57 +127,48 @@ export const QUESTIONS: Question[] = [
     ],
   },
   {
-    titre: 'Au bal, quelle musique te fait danser ?',
+    titre: 'Au bal, quelle musique te fait plaisir ?',
     reponses: [
       { texte: 'Une bonne chanson pop bien connue.', maison: 'Gryffondor' },
       { texte: 'Une grande envolée vocale et puissante.', maison: 'Serdaigle' },
-      { texte: 'Un grand numéro de cabaret / spectacle.', maison: 'Serpentard' },
+      { texte: 'Un musique electro qui bouge', maison: 'Serpentard' },
       { texte: 'Une chanson acoustique calme.', maison: 'Poufsouffle' },
     ],
   },
   {
     titre: 'Ton animal magique à Poudlard :',
     reponses: [
-      { texte: 'Un boursouflet super câlin.', maison: 'Poufsouffle' },
-      { texte: "Un lapin d'Éclipse rapide et joueur.", maison: 'Gryffondor' },
-      { texte: 'Un grand hibou très classe.', maison: 'Serpentard' },
-      { texte: 'Un boursouf curieux et observateur.', maison: 'Serdaigle' },
+      { texte: 'Un lapin.', maison: 'Poufsouffle' },
+      { texte: 'Un chat.', maison: 'Gryffondor' },
+      { texte: 'Un hibou.', maison: 'Serpentard' },
+      { texte: 'Un rat.', maison: 'Serdaigle' },
     ],
   },
   {
     titre: 'Ta boutique sur le Chemin de Traverse :',
     reponses: [
-      { texte: 'Un salon de coiffure / beauté magique.', maison: 'Serpentard' },
-      { texte: "Un labo d'élixirs ultra-précis.", maison: 'Serdaigle' },
+      { texte: 'Un salon de coiffure magique.', maison: 'Serpentard' },
+      { texte: "Un magasin d'alchimie.", maison: 'Serdaigle' },
       { texte: 'Un magasin de farces et attrapes.', maison: 'Gryffondor' },
-      { texte: 'Un salon de thé super chaleureux.', maison: 'Poufsouffle' },
+      { texte: 'Un salon de thé.', maison: 'Poufsouffle' },
     ],
   },
   {
     titre: 'Le spectacle magique que tu préfères :',
     reponses: [
       { texte: 'Un grand show visuel avec costumes.', maison: 'Serpentard' },
-      { texte: 'Un grand concert dynamique.', maison: 'Gryffondor' },
+      { texte: 'Un grand concert musical.', maison: 'Gryffondor' },
       { texte: 'Une démonstration de magie très technique.', maison: 'Serdaigle' },
       { texte: 'Un spectacle convivial où tout le monde chante.', maison: 'Poufsouffle' },
     ],
   },
   {
-    titre: 'Ton sort du quotidien :',
+    titre: 'Si tu devais fabriquer un cadeau magique pour Loïs & Joanne :',
     reponses: [
-      { texte: 'Glamouris : changer de coiffure/style en un instant.', maison: 'Serpentard' },
-      { texte: 'Controllis : vérifier la qualité parfaite de tout.', maison: 'Serdaigle' },
-      { texte: 'Accio : tout faire venir à toi sans bouger.', maison: 'Gryffondor' },
-      { texte: 'Reparo : réparer facilement les objets cassés.', maison: 'Poufsouffle' },
-    ],
-  },
-  {
-    titre: 'Si tu lances ton entreprise magique :',
-    reponses: [
-      { texte: 'Être ta propre patronne et réussir.', maison: 'Serpentard' },
-      { texte: 'Offrir une qualité zéro défaut.', maison: 'Serdaigle' },
-      { texte: "Mettre de l'ambiance et du mouvement.", maison: 'Gryffondor' },
-      { texte: 'Aider les gens et faire du bien.', maison: 'Poufsouffle' },
+      { texte: 'Un album photo animé qui retrace leurs plus beaux moments.', maison: 'Serdaigle' },
+      { texte: 'Un talisman de réussite pour leurs projets.', maison: 'Serpentard' },
+      { texte: 'Un kit de fête infini avec de la musique pop sans fin.', maison: 'Gryffondor' },
+      { texte: 'Un coffret gourmand et réconfortant fait maison.', maison: 'Poufsouffle' },
     ],
   },
   {

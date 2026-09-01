@@ -18,25 +18,25 @@ export class Quiz {
     Gryffondor: {
       label: 'Gryffondor',
       couleur: 'Rouge & Or',
-      cadeau: 'reçoit son pin’s ou bracelet rouge et or',
+      cadeau: 'reçoit ton bracelet rouge',
       description: 'Tu as la bravoure, le courage et l’énergie de l’aventure.',
     },
     Serpentard: {
       label: 'Serpentard',
       couleur: 'Vert & Argent',
-      cadeau: 'reçoit son pin’s ou bracelet vert et argent',
+      cadeau: 'reçoit ton bracelet vert',
       description: 'Tu as le flair, la détermination et une présence qui impose le respect.',
     },
     Serdaigle: {
       label: 'Serdaigle',
       couleur: 'Bleu & Bronze',
-      cadeau: 'reçoit son pin’s ou bracelet bleu et bronze',
+      cadeau: 'reçoit ton bracelet bleu ',
       description: 'Tu as la curiosité, l’intelligence et le goût de la connaissance.',
     },
     Poufsouffle: {
       label: 'Poufsouffle',
       couleur: 'Jaune & Noir',
-      cadeau: 'reçoit son pin’s ou bracelet jaune et noir',
+      cadeau: 'reçoit ton bracelet jaune',
       description: 'Tu as la gentillesse, la loyauté et un cœur qui rassure les autres.',
     },
   };
@@ -79,10 +79,12 @@ export class Quiz {
       Poufsouffle: 0,
     };
 
-    const questionsMelangees = this.melangerTableau(QUESTIONS.map((question) => ({
-      ...question,
-      reponses: this.melangerTableau(question.reponses),
-    })));
+    const questionsMelangees = this.melangerTableau(
+      QUESTIONS.map((question) => ({
+        ...question,
+        reponses: this.melangerTableau(question.reponses),
+      })),
+    );
 
     this.questions = questionsMelangees.map((question) => {
       const maisonExclue = this.choisirMaisonExclue(compteurs, maisons);
