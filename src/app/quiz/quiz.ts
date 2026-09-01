@@ -1,5 +1,6 @@
 import { Component, computed, signal } from '@angular/core';
 import { Maison, Question } from '../model/question.model';
+import { QUESTIONS } from '../questions';
 
 @Component({
   imports: [],
@@ -40,28 +41,7 @@ export class Quiz {
     },
   };
 
-  // Questions personnalisées pour la soirée
-  questions: Question[] = [
-    {
-      titre: "Pour être sur ton 31 ce soir, ton accessoire ultime c'est :",
-      reponses: [
-        { texte: 'Un accessoire rouge et or qui en jette', maison: 'Gryffondor' },
-        { texte: 'Un bijou ou une cravate en argent/vert serpent', maison: 'Serpentard' },
-        { texte: 'Un détail épuré, vintage et très classe', maison: 'Serdaigle' },
-        { texte: "Quelque chose d'élégant mais surtout confortable", maison: 'Poufsouffle' },
-      ],
-    },
-    {
-      titre: 'Au bal, face au buffet des potions :',
-      reponses: [
-        { texte: 'Tu portes un toast et tu lances la piste de danse', maison: 'Gryffondor' },
-        { texte: 'Tu repères discrètement les meilleures bouteilles', maison: 'Serpentard' },
-        { texte: 'Tu analyses la composition des cocktails', maison: 'Serdaigle' },
-        { texte: "Tu t'assures que tout le monde a un verre rempli", maison: 'Poufsouffle' },
-      ],
-    },
-    // Ajoute tes autres questions ici
-  ];
+  questions: Question[] = [];
 
   indexQuestion = signal(0);
   scores = signal<Record<Maison, number>>({
@@ -77,12 +57,70 @@ export class Quiz {
     if (!this.estFini()) return null;
     const currentScores = this.scores();
     const maisons = Object.keys(currentScores) as Maison[];
+    const maxScore = Math.max(...maisons.map((maison) => currentScores[maison]));
+    const gagnantes = maisons.filter((maison) => currentScores[maison] === maxScore);
+
+    if (gagnantes.length > 1) {
+      return gagnantes[Math.floor(Math.random() * gagnantes.length)];
+    }
 
     return maisons.reduce<Maison>(
       (winner, current) => (currentScores[winner] >= currentScores[current] ? winner : current),
       maisons[0],
     );
   });
+
+  initialiserQuiz(): void {
+    const maisons: Maison[] = ['Gryffondor', 'Serpentard', 'Serdaigle', 'Poufsouffle'];
+    const compteurs: Record<Maison, number> = {
+      Gryffondor: 0,
+      Serpentard: 0,
+      Serdaigle: 0,
+      Poufsouffle: 0,
+    };
+
+    const questionsMelangees = this.melangerTableau(QUESTIONS.map((question) => ({
+      ...question,
+      reponses: this.melangerTableau(question.reponses),
+    })));
+
+    this.questions = questionsMelangees.map((question) => {
+      const maisonExclue = this.choisirMaisonExclue(compteurs, maisons);
+      const reponsesSelectionnees = this.melangerTableau(
+        question.reponses.filter((reponse) => reponse.maison !== maisonExclue),
+      ).slice(0, 3);
+
+      for (const reponse of reponsesSelectionnees) {
+        compteurs[reponse.maison] += 1;
+      }
+
+      return {
+        titre: question.titre,
+        reponses: reponsesSelectionnees,
+      };
+    });
+
+    this.scores.set({ Gryffondor: 0, Serpentard: 0, Serdaigle: 0, Poufsouffle: 0 });
+    this.indexQuestion.set(0);
+    this.started.set(false);
+  }
+
+  private choisirMaisonExclue(compteurs: Record<Maison, number>, maisons: Maison[]): Maison {
+    const maxCompte = Math.max(...maisons.map((maison) => compteurs[maison]));
+    const maisonsMax = maisons.filter((maison) => compteurs[maison] === maxCompte);
+    return maisonsMax[Math.floor(Math.random() * maisonsMax.length)];
+  }
+
+  private melangerTableau<T>(items: T[]): T[] {
+    const copie = [...items];
+
+    for (let index = copie.length - 1; index > 0; index--) {
+      const indexAleatoire = Math.floor(Math.random() * (index + 1));
+      [copie[index], copie[indexAleatoire]] = [copie[indexAleatoire], copie[index]];
+    }
+
+    return copie;
+  }
 
   repondre(maison: Maison) {
     this.scores.update((s) => ({ ...s, [maison]: s[maison] + 1 }));
@@ -94,8 +132,10 @@ export class Quiz {
   }
 
   recommencer() {
-    this.scores.set({ Gryffondor: 0, Serpentard: 0, Serdaigle: 0, Poufsouffle: 0 });
-    this.indexQuestion.set(0);
-    this.started.set(false);
+    this.initialiserQuiz();
+  }
+
+  constructor() {
+    this.initialiserQuiz();
   }
 }
