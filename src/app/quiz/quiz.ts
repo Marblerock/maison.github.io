@@ -8,6 +8,29 @@ import { Maison, Question } from '../model/question.model';
   templateUrl: './quiz.html',
 })
 export class Quiz {
+  readonly maisonDetails: Record<Maison, { label: string; couleur: string; cadeau: string }> = {
+    Gryffondor: {
+      label: 'Gryffondor',
+      couleur: 'Rouge & Or',
+      cadeau: 'reçoit son pin’s ou bracelet rouge et or',
+    },
+    Serpentard: {
+      label: 'Serpentard',
+      couleur: 'Vert & Argent',
+      cadeau: 'reçoit son pin’s ou bracelet vert et argent',
+    },
+    Serdaigle: {
+      label: 'Serdaigle',
+      couleur: 'Bleu & Bronze',
+      cadeau: 'reçoit son pin’s ou bracelet bleu et bronze',
+    },
+    Poufsouffle: {
+      label: 'Poufsouffle',
+      couleur: 'Jaune & Noir',
+      cadeau: 'reçoit son pin’s ou bracelet jaune et noir',
+    },
+  };
+
   // Questions personnalisées pour la soirée
   questions: Question[] = [
     {
@@ -44,8 +67,11 @@ export class Quiz {
   maisonGagnante = computed<Maison | null>(() => {
     if (!this.estFini()) return null;
     const currentScores = this.scores();
-    return (Object.keys(currentScores) as Maison[]).reduce((a, b) =>
-      currentScores[a] > currentScores[b] ? a : b,
+    const maisons = Object.keys(currentScores) as Maison[];
+
+    return maisons.reduce<Maison>(
+      (winner, current) => (currentScores[winner] >= currentScores[current] ? winner : current),
+      maisons[0],
     );
   });
 
