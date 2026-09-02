@@ -353,10 +353,10 @@ h1 {
 
 .maison-blason {
   display: block;
-  width: 140px;
-  height: 140px;
+  width: 180px;
+  height: 180px;
   object-fit: contain;
-  margin: 16px auto;
+  margin: 20px auto;
   animation: reveal-name 0.8s ease-out 0.2s backwards;
   filter: drop-shadow(0 0 15px rgba(244, 215, 125, 0.3));
 }
