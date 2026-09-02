@@ -5,21 +5,30 @@ export const QUESTIONS: Question[] = [
     titre: 'En arrivant au bal ce soir :',
     reponses: [
       {
-        texte: 'Tu regardes le bar/buffet et tu repers la meilleure place.',
+        texte: 'Tu regardes le bar/buffet et tu repères la meilleure place.',
         maison: 'Serpentard',
       },
-      { texte: 'Tu te jettes au milieu du groupe le plus animé.', maison: 'Gryffondor' },
+      { texte: 'Tu te joins au milieu du groupe le plus animé.', maison: 'Gryffondor' },
       { texte: 'Tu inspectes le décor et les détails du lieu.', maison: 'Serdaigle' },
       { texte: 'Tu fais le tour pour saluer tout le monde.', maison: 'Poufsouffle' },
     ],
   },
   {
-    titre: 'Ce qui te motive au quotidien :',
+    titre: 'Tu dois garder Lola pendant la soirée et elle attrape une baguette magique :',
     reponses: [
-      { texte: "Apprendre et analyser ce qui t'entoure.", maison: 'Serdaigle' },
-      { texte: 'Réussir tes projets et marquer les esprits.', maison: 'Serpentard' },
-      { texte: 'Entretenir de bonnes relations et aider.', maison: 'Poufsouffle' },
-      { texte: "L'action, le risque et l'inconnu.", maison: 'Gryffondor' },
+      {
+        texte: 'Tu la laisses faire en observant curieusement ce qui va se passer.',
+        maison: 'Gryffondor',
+      },
+      { texte: 'Tu lui tentes un échange discret contre un doudou magique.', maison: 'Serpentard' },
+      {
+        texte: 'Tu lances vite un sort de protection sur la vaisselle autour.',
+        maison: 'Serdaigle',
+      },
+      {
+        texte: 'Tu rigoles et joues avec elle pour lui récupérer discrètement.',
+        maison: 'Poufsouffle',
+      },
     ],
   },
   {
@@ -91,7 +100,7 @@ export const QUESTIONS: Question[] = [
     ],
   },
   {
-    titre: 'Dans un débat houleux à table :',
+    titre: 'Dans un débat houleux à table à la soirée:',
     reponses: [
       { texte: 'Tu donnes ton avis franco, sans filtre.', maison: 'Gryffondor' },
       { texte: 'Tu restes neutre avec des arguments factuels.', maison: 'Serdaigle' },
@@ -109,12 +118,22 @@ export const QUESTIONS: Question[] = [
     ],
   },
   {
-    titre: 'Ce qui te donne le plus de satisfaction :',
+    titre: "Roxy, le lapin de Loïs, s'est échappé et traverse la salle de bal :",
     reponses: [
-      { texte: 'Mener un travail long avec rigueur.', maison: 'Poufsouffle' },
-      { texte: 'Prendre la tête des opérations.', maison: 'Serpentard' },
-      { texte: 'Résoudre un problème jugé impossible.', maison: 'Serdaigle' },
-      { texte: "Gérer un défi critique dans l'urgence.", maison: 'Gryffondor' },
+      { texte: 'Tu lui plonges dessus pour le stopper net en plein vol.', maison: 'Gryffondor' },
+      {
+        texte: "Tu l'attires doucement avec une friandise pour le amadouer.",
+        maison: 'Serpentard',
+      },
+      {
+        texte: 'Tu évalues sa trajectoire pour lui couper la route proprement.',
+        maison: 'Serdaigle',
+      },
+      {
+        texte:
+          'Tu lui parles calmement pour la rassurer et la caresse doucement pour la récupérer.',
+        maison: 'Poufsouffle',
+      },
     ],
   },
   {
@@ -127,12 +146,21 @@ export const QUESTIONS: Question[] = [
     ],
   },
   {
-    titre: 'Au bal, quelle musique te fait plaisir ?',
+    titre: 'En fin de soirée, les filles lancent un karaoké magique :',
     reponses: [
-      { texte: 'Une bonne chanson pop bien connue.', maison: 'Gryffondor' },
-      { texte: 'Une grande envolée vocale et puissante.', maison: 'Serdaigle' },
-      { texte: 'Un musique electro qui bouge', maison: 'Serpentard' },
-      { texte: 'Une chanson acoustique calme.', maison: 'Poufsouffle' },
+      {
+        texte: "Tu t'empares du micro pour hurler de la pop comme au Stade de France.",
+        maison: 'Gryffondor',
+      },
+      {
+        texte: 'Tu te lances dans une ballade lyrique intense avec un solo digne de Céline.',
+        maison: 'Serdaigle',
+      },
+      { texte: 'Tu coordonnes toute la salle pour une chorégraphie géante.', maison: 'Serpentard' },
+      {
+        texte: 'Tu chantes en chœur au fond du groupe en tenant le bras de tes voisins.',
+        maison: 'Poufsouffle',
+      },
     ],
   },
   {
@@ -187,6 +215,28 @@ export const QUESTIONS: Question[] = [
       { texte: 'Une playlist qui fait chanter tout le monde.', maison: 'Gryffondor' },
       { texte: 'Une déco et une tenue qui en jettent.', maison: 'Serpentard' },
       { texte: 'Que tout le monde se sente bienvenu.', maison: 'Poufsouffle' },
+    ],
+  },
+  {
+    titre: 'Tu reçois une robe de bal tricotée à la main par un tes proches pour ce soir :',
+    reponses: [
+      {
+        texte: 'Tu la portes fièrement avec des lunettes de soleil excentriques.',
+        maison: 'Gryffondor',
+      },
+      {
+        texte:
+          'Tu lances un sort de Métamorphose pour en faire un costume trois pièces ultra-chic.',
+        maison: 'Serpentard',
+      },
+      {
+        texte: 'Tu découpes les manches pour lui donner un style vintage totalement assumé.',
+        maison: 'Serdaigle',
+      },
+      {
+        texte: "Tu la mets sans hésiter : le plus important, c'est l'intention !",
+        maison: 'Poufsouffle',
+      },
     ],
   },
 ];
