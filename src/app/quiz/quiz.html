@@ -1,7 +1,9 @@
 <main class="quiz-container">
   @if (!started()) {
     <section class="card welcome-card">
-      <div class="welcome-ornament">✦</div>
+      <div class="welcome-ornament">
+        <img class="ornament-icon" src="blason.png" alt="" aria-hidden="true" />
+      </div>
       <p class="subtitle">Bienvenue à Poudlard</p>
       <h1 class="welcome-title">Découvre ta maison</h1>
       <p class="welcome-text">
@@ -25,7 +27,7 @@
       <div class="options">
         @for (rep of questions[indexQuestion()].reponses; track rep.texte) {
           <button class="option" (click)="repondre(rep.maison)">
-            <span class="spark">✦</span>
+            <img class="spark" src="blason.png" alt="" aria-hidden="true" />
             <span>{{ rep.texte }}</span>
           </button>
         }
