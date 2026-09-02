@@ -302,6 +302,65 @@ h1 {
   margin-top: 18px;
 }
 
+.reflection-phase {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 300px;
+}
+
+.choixpeau-reflection {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  animation: choixpeau-pulse 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(244, 215, 125, 0.4));
+}
+
+@keyframes choixpeau-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.9;
+  }
+}
+
+.reveal-house {
+  animation: reveal-name 0.8s ease-out;
+  text-shadow:
+    0 0 14px rgba(244, 215, 125, 0.5),
+    0 0 28px rgba(244, 215, 125, 0.3);
+}
+
+@keyframes reveal-name {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.maison-blason {
+  display: block;
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin: 16px auto;
+  animation: reveal-name 0.8s ease-out 0.2s backwards;
+  filter: drop-shadow(0 0 15px rgba(244, 215, 125, 0.3));
+}
+
 @media (max-width: 420px) {
   .card {
     border-radius: 22px;

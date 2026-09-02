@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 import { Maison, Question } from '../model/question.model';
 import { QUESTIONS } from '../questions';
 
@@ -10,6 +10,7 @@ import { QUESTIONS } from '../questions';
 })
 export class Quiz {
   started = signal(false);
+  enReflexion = signal(false);
 
   readonly maisonDetails: Record<
     Maison,
@@ -137,7 +138,25 @@ export class Quiz {
     this.initialiserQuiz();
   }
 
+  private declencherReflexion() {
+    this.enReflexion.set(true);
+    setTimeout(() => {
+      this.enReflexion.set(false);
+    }, 4500);
+  }
+
+  obtenirBlasonMaison(maison: Maison | null): string {
+    if (!maison) return '';
+    return `${maison}.png`;
+  }
+
   constructor() {
     this.initialiserQuiz();
+
+    effect(() => {
+      if (this.estFini() && this.started()) {
+        this.declencherReflexion();
+      }
+    });
   }
 }

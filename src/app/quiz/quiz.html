@@ -36,21 +36,38 @@
   } @else {
     <section class="card result-card">
       <div class="result-glow"></div>
-      <p class="subtitle">Le Choixpeau a parlé !</p>
-      <div class="house-pill">Maison attribuée</div>
-      <h1>{{ maisonGagnante() }}</h1>
 
-      <div class="instruction">
+      @if (enReflexion()) {
+        <div class="reflection-phase">
+          <p class="subtitle">Hum je vois... tu seras...</p>
+          <img class="choixpeau-reflection" src="choixpeau.png" alt="Le Choixpeau réfléchit" />
+        </div>
+      } @else {
+        <p class="subtitle">Le Choixpeau a parlé !</p>
+        <div class="house-pill">Maison attribuée</div>
+
         @if (maisonGagnante()) {
-          <p class="trait">{{ maisonDetails[maisonGagnante()!].description }}</p>
-          <p>
-            <strong>{{ maisonDetails[maisonGagnante()!].couleur }}</strong>
-            · {{ maisonDetails[maisonGagnante()!].cadeau }}
-          </p>
+          <img
+            class="maison-blason"
+            [src]="obtenirBlasonMaison(maisonGagnante())"
+            [alt]="maisonGagnante()"
+          />
         }
-      </div>
 
-      <button class="btn-reset" (click)="recommencer()">Recommencer</button>
+        <h1 class="reveal-house">{{ maisonGagnante() }}</h1>
+
+        <div class="instruction">
+          @if (maisonGagnante()) {
+            <p class="trait">{{ maisonDetails[maisonGagnante()!].description }}</p>
+            <p>
+              <strong>{{ maisonDetails[maisonGagnante()!].couleur }}</strong>
+              · {{ maisonDetails[maisonGagnante()!].cadeau }}
+            </p>
+          }
+        </div>
+
+        <button class="btn-reset" (click)="recommencer()">Recommencer</button>
+      }
     </section>
   }
 </main>
